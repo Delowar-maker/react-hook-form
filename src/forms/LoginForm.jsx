@@ -15,7 +15,7 @@ export default function LoginForm() {
         <FieldSet label={"Email Address"}>
           <Field label={"Email"}>
             <input
-              {...register("email")}
+              {...register("email", { required: "Email is required" })}
               className="p-2 border box-border w-[300px] rounded-md border-gray-300"
               type="email"
               name="email"
@@ -25,7 +25,13 @@ export default function LoginForm() {
           </Field>
           <Field label={"Password"}>
             <input
-              {...register("password")}
+              {...register("password", {
+                required: "Password is required",
+                minLength: {
+                  value: 8,
+                  message: "Password must be at least 8 characters",
+                },
+              })}
               className="p-2 border box-border w-[300px] rounded-md border-gray-300"
               type="password"
               name="password"
