@@ -1,13 +1,21 @@
+import { useForm } from "react-hook-form";
 import Field from "../components/Field";
 import FieldSet from "../components/FieldSet";
 
 export default function LoginForm() {
+  // login form function useForm
+  const { register, handleSubmit } = useForm();
+
+  const submitForm = (fromData) => {
+    console.log(fromData);
+  };
   return (
-    <div>
-      <form>
+    <div className="flex flex-col justify-center items-center">
+      <form onSubmit={handleSubmit(submitForm)}>
         <FieldSet label={"Email Address"}>
           <Field label={"Email"}>
             <input
+              {...register("email")}
               className="p-2 border box-border w-[300px] rounded-md border-gray-300"
               type="email"
               name="email"
@@ -17,6 +25,7 @@ export default function LoginForm() {
           </Field>
           <Field label={"Password"}>
             <input
+              {...register("password")}
               className="p-2 border box-border w-[300px] rounded-md border-gray-300"
               type="password"
               name="password"

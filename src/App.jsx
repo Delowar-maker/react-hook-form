@@ -10,4 +10,4 @@ const App = () => {
 
 export default App;
 
-//32:30
+//35:35
