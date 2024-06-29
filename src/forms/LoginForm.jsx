@@ -8,10 +8,23 @@ export default function LoginForm() {
     register,
     handleSubmit,
     formState: { errors },
+    setError,
   } = useForm();
 
   const submitForm = (fromData) => {
     console.log(fromData);
+    //Login user
+    const user = { email: "x@example.com", password: "123456789" };
+
+    const found =
+      fromData.email === user.email && fromData.password === user.password;
+
+    if (!found) {
+      setError("root.random", {
+        message: `User with email '${fromData.email}' is not found `,
+        type: "ramdom",
+      });
+    }
   };
   return (
     <div className="flex flex-col justify-center items-center">
@@ -48,6 +61,7 @@ export default function LoginForm() {
             />
           </Field>
         </FieldSet>
+        <div>{errors?.root?.random?.message}</div>
         <Field>
           <button className="text-md text-white cursor-p p-1 border rounded-lg  bg-purple-500">
             Login
