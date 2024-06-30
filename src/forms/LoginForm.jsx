@@ -63,7 +63,7 @@ export default function LoginForm() {
         </FieldSet>
         <div>{errors?.root?.random?.message}</div>
         <Field>
-          <button className="text-md text-white cursor-p p-1 border rounded-lg  bg-purple-500">
+          <button className="text-md text-white cursor-p p-1 border rounded-lg  bg-purple-500 m-auto">
             Login
           </button>
         </Field>
